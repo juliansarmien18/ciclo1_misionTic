@@ -1,3 +1,6 @@
+from os import read, write
+
+
 def menu():
     print('BIENVENIDO/A'+'\n'+'Elija Una de las Siguiente Opciones')
     print('1. Buscar numero de telefono segun nombre y apellido')
@@ -38,14 +41,20 @@ def Adicionar():
     print('se adiciono el nuevo beneficiario')
 
 def Borrar():
-    cedula = input('Digite la cedula del beneficiario a Borrar')
-    entradaLogico=open('agenda.txt','r')
-    lineas= entradaLogico.readlines()
-    entradaLogico.close()
+    cedula = input('Digite la cedula del beneficiario a Borrar:')
+    with open("agenda.txt","r") as f:
+        lineas = f.readlines()
+        numero = [lineas[lineas.index(n)+1]for n in lineas if n==(cedula+'\n')]
+        Nombre = [lineas[lineas.index(n)-1]for n in lineas if n==(cedula+'\n')]
+        f.close()
 
-
-
-
+        f=open("agenda.txt","w")
+        for linea in lineas:
+            linea.rstrip()
+            if linea != (Nombre[0]) and linea != (numero[0]) and linea != (cedula+'\n'):
+                f.write(linea)
+        f.close()
+        print('Se ha borrado con exito el Beneficiario')
 
 def ListaCompleta():
     entradaLogico = open('agenda.txt', 'r')
@@ -64,8 +73,9 @@ while op != 0:
         print()
         op=menu()
     elif op == 3:
-        print('holi')
+        Borrar()
         op=menu()
+        exit()
     elif op == 4:
         ListaCompleta()
         print()
