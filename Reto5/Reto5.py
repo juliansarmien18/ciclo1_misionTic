@@ -9,12 +9,23 @@ def menu():
     op = int(input('Usted escoge la opcion:'))
     return op
 
+def BuscarNom():
+    Datos = input('Digite el nombre y el apellido de la persona  buscar el numero:')
+    entradaLogico = open('agenda.txt','r')
+    for linea in entradaLogico:
+        linea = linea.rstrip()
+        if linea == Datos:
+            cel = entradaLogico.readlines()[1]
+            entradaLogico.close
+            print('El telefono de',Datos,'es: ',cel)
+
 def Adicionar():
     entradaLogico=open('agenda.txt', 'r')
     Nombre=input('digite nombre del nuevo usuario:')
     cedula=input('Digite cedula del nuevo beneficiario:')
     for linea in entradaLogico:
-        while linea == cedula+'\n':
+        linea = linea.rstrip()
+        while linea == cedula:
             cedula = input('esta cedula ya existe, digite una nueva: ')
     entradaLogico.close()
     tel= input('Digite numero de telefono del nuevo beneficiario: ')
@@ -35,7 +46,7 @@ def ListaCompleta():
 op=menu()
 while op != 0:
     if op == 1:
-        print('holi')
+        BuscarNom()
         op=menu()
     elif op == 2:
         Adicionar()
