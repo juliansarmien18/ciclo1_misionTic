@@ -18,6 +18,7 @@ def BuscarNom():
             cel = entradaLogico.readlines()[1]
             entradaLogico.close
             print('El telefono de',Datos,'es: ',cel)
+    entradaLogico.close()
 
 def Adicionar():
     entradaLogico=open('agenda.txt', 'r')
@@ -35,6 +36,16 @@ def Adicionar():
     entradaLogico.write('\n'+tel)
     entradaLogico.close()
     print('se adiciono el nuevo beneficiario')
+
+def Borrar():
+    cedula = input('Digite la cedula del beneficiario a Borrar')
+    entradaLogico=open('agenda.txt','r')
+    lineas= entradaLogico.readlines()
+    entradaLogico.close()
+
+
+
+
 
 def ListaCompleta():
     entradaLogico = open('agenda.txt', 'r')
