@@ -1,6 +1,5 @@
 from os import read, write
 
-
 def menu():
     print('BIENVENIDO/A'+'\n'+'Elija Una de las Siguiente Opciones')
     print('1. Buscar numero de telefono segun nombre y apellido')
@@ -27,6 +26,7 @@ def Adicionar():
     entradaLogico=open('agenda.txt', 'r')
     Nombre=input('digite nombre del nuevo usuario:')
     cedula=input('Digite cedula del nuevo beneficiario:')
+    #comparar variable con archivo txt
     for linea in entradaLogico:
         linea = linea.rstrip()
         while linea == cedula:
