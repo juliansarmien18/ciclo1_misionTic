@@ -59,9 +59,23 @@ def Borrar():
 def ListaCompleta():
     entradaLogico = open('agenda.txt', 'r')
     for linea in entradaLogico:
-        print(linea, end="")
+        print(linea,end="")
     print()
     entradaLogico.close()
+
+def PorLetra():
+    letra = input('Digite por favor la letra mayuscula a filtrar: ')
+    f=open("agenda.txt","r")
+    lineas = f.readlines()
+    for n in lineas:
+        if n[0]==letra:
+            cedula=[lineas[lineas.index(n)+1]]
+            cel=[lineas[lineas.index(n)+2]]
+            
+            print(n,end="")
+            print(cedula[0],end="")
+            print(cel[0])
+    f.close()
 
 op=menu()
 while op != 0:
@@ -75,13 +89,12 @@ while op != 0:
     elif op == 3:
         Borrar()
         op=menu()
-        exit()
     elif op == 4:
         ListaCompleta()
         print()
         op=menu()
     elif op == 5:
-        print('holi')
+        PorLetra()
         op=menu()
     else:
         exit()
