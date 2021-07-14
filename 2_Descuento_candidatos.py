@@ -48,3 +48,4 @@ dec_salarios = float(input('Digite numero de salarios minimos con decimales: '))
 #se almacenan los datos de la funcion de calculo en una unica variable, es opcional ya que dentro del print se puede llamar a la funcion
 desc_total = Descuento(edad, dec_salarios, puntaje)
 print('El candidato '+nom_ap+' recibirá un decuento total del', desc_total, '%')
+print("holanda")
